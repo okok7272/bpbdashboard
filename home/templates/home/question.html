@@ -3,17 +3,25 @@
 <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
 
 {% block question %}
+    <div class ="container">
     {%if context == 'information' %}
+        <div class="form-group">
+            <span>DATABASE : INFORMATION</span>
+        </div>
         <form action="{% url 'home:resultIN' %}" method="">
             <!-- keyword search  -->
+
             <div class="form-group">
-                <input type="text" name="title" placeholder="title 입력해주세용" class="form-control">
+                <label for="title">TITLE</label>
+                <input type="text" name="title" placeholder="title 입력해주세용" class="form-control" id="title">
             </div>
             <div class="form-group">
-                <input type="text" name="isbn" placeholder="isbn번호 10자리를 입력해주세용" class="form-control">
+                <label for="isbn">ISBN</label>
+                <input type="text" name="isbn" placeholder="isbn번호 10자리를 입력해주세용" class="form-control" id="isbn">
             </div>
             <div class="form-group">
-                <input type="text" name="publisher" placeholder="출판사를 입력해주세용" class="form-control">
+                <label for="publisher">출판사</label>
+                <input type="text" name="publisher" placeholder="출판사를 입력해주세용" class="form-control" id="publisher">
             </div>            
             <div class="form-group">
                 <button class="btn btn-block button-theme btn-md">
@@ -26,13 +34,16 @@
     {% elif context == 'book_table' %}
         <form action="{% url 'home:resultBT' %}" method="">
             <div class="form-group">
-                <input type="text" name="title" placeholder="title 입력해주세용" class="form-control">
+                <label for="title">TITLE</label>
+                <input type="text" name="title" placeholder="title 입력해주세용" class="form-control" id="title">
             </div>
             <div class="form-group">
-                <input type="text" name="date" placeholder="베스트셀러기간" class="form-control">
+                <label for="date">기간</label>
+                <input type="text" name="date" placeholder="베스트셀러기간" class="form-control" id="date">
             </div>
             <div class="form-group">
-                <input type="text" name="author" placeholder="저자 입력해주세용" class="form-control">
+                <label for="author">저자</label>
+                <input type="text" name="author" placeholder="저자 입력해주세용" class="form-control" id="author">
             </div>
 
             <div class="form-group">
@@ -40,18 +51,23 @@
                     <i class="fa fa-search"></i> Search
                 </button>
             </div>
-        </form>    
+        </form>
+        
+        
     {% elif context == 'buyc' %}
         <form action="{% url 'home:resultBC' %}" method="">
             <!-- keyword search  -->
             <div class="form-group">
-                <input type="text" name="portal" placeholder="portal 입력해주세용" class="form-control">
+                <label for="portal">사이트</label>
+                <input type="text" name="portal" placeholder="portal 입력해주세용" class="form-control" id="portal">
             </div>
             <div class="form-group">
-            <input type="text" name="price" placeholder="가격" class="form-control">
+                <label for="price">정가</label>
+                <input type="text" name="price" placeholder="가격" class="form-control" id="price">
             </div>
             <div class="form-group">
-                <input type="text" name="sales" placeholder="할인가" class="form-control">
+                <label for="sales">할인가</label>
+                <input type="text" name="sales" placeholder="할인가" class="form-control" id="sales">
             </div>
             <div class="form-group">
                 <button class="btn btn-block button-theme btn-md">
@@ -59,22 +75,29 @@
                 </button>
             </div>
         </form>
+
+
     {% elif context == 'period' %}
         <form action="{% url 'home:resultPR' %}" method="">
             <div class="form-group">
-                <input type="text" name="year" placeholder="년도" class="form-control">
+                <label for="year">YEAR</label>
+                <input type="text" name="year" placeholder="년도" class="form-control" id="year">
             </div>
             <div class="form-group">
-            <input type="text" name="month" placeholder="월" class="form-control">
+                <label for="month">MONTH</label>
+                <input type="text" name="month" placeholder="월" class="form-control" id="month">
             </div>
             <div class="form-group">
-                <input type="text" name="week" placeholder="주" class="form-control">
+                <label for="month">WEEK</label>
+                <input type="text" name="week" placeholder="주" class="form-control" id="week">
             </div>
             <div class="form-group">
-                <input type="text" name="day" placeholder="일" class="form-control">
+                <label for="day">DAY</label>
+                <input type="text" name="day" placeholder="일" class="form-control" id="day">
             </div>
             <div class="form-group">
-                <input type="text" name="pubdate" placeholder="출판일자" class="form-control">
+                <label for="pubdate">출판일자</label>
+                <input type="text" name="pubdate" placeholder="출판일자" class="form-control" id="pubdate">
             </div>
             <div class="form-group">
                 <button class="btn btn-block button-theme btn-md">
@@ -82,19 +105,25 @@
                 </button>
             </div>
         </form>
+
+
     {% elif context == 'reputation' %}
         <form action="{% url 'home:resultRP' %}" method="">
             <div class="form-group">
-                <input type="text" name="portal" placeholder="사이트" class="form-control">
+                <label for="portal">portal</label>
+                <input type="text" name="portal" placeholder="사이트" class="form-control" id="portal">
             </div>
             <div class="form-group">
-                <input type="text" name="rank" placeholder="순위" class="form-control">
+                <label for="rank">RANK</label>
+                <input type="text" name="rank" placeholder="순위" class="form-control" id="rank">
             </div>
             <div class="form-group">
-                <input type="text" name="review_num" placeholder="리뷰숫자" class="form-control">
+                <label for="reviewnum">리뷰숫자</label>
+                <input type="text" name="review_num" placeholder="리뷰숫자" class="form-control" id="reviewnum">
             </div>
             <div class="form-group">
-                <input type="text" name="review_rate" placeholder="리뷰점수" class="form-control">
+                <label for="review_rate">리뷰 점수</label>
+                <input type="text" name="review_rate" placeholder="리뷰점수" class="form-control" id="review_rate">
             </div>
             <div class="form-group">
                 <button class="btn btn-block button-theme btn-md">
@@ -102,17 +131,22 @@
                 </button>
             </div>
         </form>
+
+
     {% elif context == 'lib_table' %}
         <form action="{% url 'home:resultLT' %}" method="">
 
             <div class="form-group">
-                <input type="text" name="title" placeholder="제목" class="form-control">
+                <label for="title">TITLE</label>
+                <input type="text" name="title" placeholder="제목" class="form-control" id="title">
             </div>
             <div class="form-group">
-            <input type="text" name="pub" placeholder="출판사" class="form-control">
+                <label for="pub">출판사</label>
+                <input type="text" name="pub" placeholder="출판사" class="form-control" id="pub">
             </div>
             <div class="form-group">
-                <input type="text" name="author" placeholder="저자" class="form-control">
+                <label for="author">저자</label>
+                <input type="text" name="author" placeholder="저자" class="form-control" id="author">
             </div>
             <div class="form-group">
                 <button class="btn btn-block button-theme btn-md">
@@ -120,14 +154,18 @@
                 </button>
             </div>
         </form>
+
+
     {% elif context == 'lib_s_a' %}
         <form action="{% url 'home:resultLSA' %}" method="">
 
             <div class="form-group">
-                <input type="text" name="author" placeholder="저자" class="form-control">
+                <label for="author">저자</label>
+                <input type="text" name="author" placeholder="저자" class="form-control" id="author">
             </div>
             <div class="form-group">
-                <input type="text" name="price" placeholder="가격" class="form-control">
+                <label for="price">가격</label>
+                <input type="text" name="price" placeholder="가격" class="form-control" id="price">
             </div>
             <div class="form-group">
                 <button class="btn btn-block button-theme btn-md">
@@ -135,16 +173,21 @@
                 </button>
             </div>
         </form>
+
+
     {% elif context == 'lib_info' %}
         <form action="{% url 'home:resultLI' %}" method="">
             <div class="form-group">
-                <input type="text" name="title" placeholder="제목" class="form-control">
+                <label for="title">TITLE</label>
+                <input type="text" name="title" placeholder="제목" class="form-control" id="title">
             </div>
             <div class="form-group">
-                <input type="text" name="isbn" placeholder="isbn" class="form-control">
+                <label for="isbn">portal</label>
+                <input type="text" name="isbn" placeholder="isbn" class="form-control" id="isbn">
             </div>
             <div class="form-group">
-                <input type="text" name="isbnaddcode" placeholder="isbn 13자리" class="form-control">
+                <label for="isbnaddcode">ISBN 13자리</label>
+                <input type="text" name="isbnaddcode" placeholder="isbn 13자리" class="form-control" id="isbnaddcode">
             </div>
             <div class="form-group">
                 <button class="btn btn-block button-theme btn-md">
@@ -152,18 +195,24 @@
                 </button>
             </div>
         </form>
+
+
     {% elif context == 'lib_date' %}
         <form action="{% url 'home:resultLD' %}" method="">
             <div class="form-group">
+                <label for="pub">출판사</label>
                 <input type="text" name="pub" placeholder="출판사" class="form-control">
             </div>
             <div class="form-group">
+                <label for="pubyear">연도</label>
                 <input type="text" name="pubyear" placeholder="연도" class="form-control">
             </div>
             <div class="form-group">
-            <input type="text" name="pubmonth" placeholder="월" class="form-control">
+                <label for="pubmonth">월</label>
+                <input type="text" name="pubmonth" placeholder="월" class="form-control">
             </div>
             <div class="form-group">
+                <label for="pubday">일</label>
                 <input type="text" name="pubday" placeholder="일" class="form-control">
             </div>
             <div class="form-group">
@@ -173,4 +222,5 @@
             </div>
         </form>
     {% endif %}
+    </div>
 {% endblock question %}
