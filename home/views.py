@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import BookTable, Buyc, Information,Period, Reputation, LibDate,LibInformation,LibSA,LibTable
+import urllib3 
 # Create your views here.
 def home(request):
     return render(request, 'home/home.html')
@@ -24,6 +25,7 @@ def resultBC(request):
         sales = request.GET['price']
         if sales: 
             buycs = buycs.filter(price=sales)
+
     if 'sales' in request.GET: 
         sales = request.GET['sales']
         if sales: 
@@ -39,8 +41,7 @@ def resultIN(request):
     if 'title' in request.GET: 
         title = request.GET['title']
         if title:
-            entitle = title.decode('UTF-8') 
-            info = info.filter(title=entitle)
+            info = info.filter(title=title)
 
     if 'isbn' in request.GET: 
         isbn10 = request.GET['isbn']
@@ -62,8 +63,7 @@ def resultBT(request):
     if 'title' in request.GET: 
         title = request.GET['title']
         if title: 
-            entitle = title.decode('UTF-8')            
-            books = books.filter(title=entitle)
+            books = books.filter(title=title)
 
     if 'date' in request.GET: 
         date = request.GET['date']
@@ -103,8 +103,7 @@ def resultPR(request):
     if 'pubdate' in request.GET: 
         pubdate = request.GET['pubdate']
         if pubdate: 
-            enpubdate = pubdate.decode('UTF-8')
-            periods = periods.filter(pub_date=enpubdate)   
+            periods = periods.filter(pub_date=pubdate)   
 
     context = {
         'periods': periods, 
@@ -211,6 +210,7 @@ def resultLD(request):
         if pubyear:
             dpubyear = float(pubyear)
             libdates = libdates.filter(pub_year=dpubyear)
+
     if 'pubmonth' in request.GET: 
         pubmonth = request.GET['pubmonth']
         if pubmonth:
